@@ -55,14 +55,10 @@ extern "C" {
 #define C51_COMPILER
 // Note: bit type cannot be used in structs, use unsigned char instead
 // defines.h defines bool as _Bool, but we use unsigned char for compatibility
-#ifndef _DEFINES_H_
-typedef unsigned char uint8_t;
-typedef signed char int8_t;
-typedef unsigned short uint16_t;
-typedef signed short int16_t;
-typedef unsigned long uint32_t;
-typedef signed long int32_t;
-typedef unsigned char bool;
+ #ifndef USE_ARIES_SDK
+    #include <stdint.h>
+#else
+    #include "aries_sdk.h"
 #endif
 #include <stdlib.h>
 #ifndef true
